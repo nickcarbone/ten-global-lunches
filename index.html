@@ -1,0 +1,681 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Ten Lunches</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EDEFEA;
+    --paper-deep:#E2E5DD;
+    --ink:#1B2019;
+    --ink-soft:#4A5249;
+    --oxblood:#6E2230;
+    --brass:#8C6F32;
+    --rule:rgba(27,32,25,.18);
+    --measure:34rem;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#161A16;
+      --paper-deep:#1F241F;
+      --ink:#E3E6DF;
+      --ink-soft:#A2AA9E;
+      --oxblood:#D9929C;
+      --brass:#CDAE6C;
+      --rule:rgba(227,230,223,.17);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#161A16;
+    --paper-deep:#1F241F;
+    --ink:#E3E6DF;
+    --ink-soft:#A2AA9E;
+    --oxblood:#D9929C;
+    --brass:#CDAE6C;
+    --rule:rgba(227,230,223,.17);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Spectral',Georgia,'Times New Roman',serif;
+    font-weight:400;
+    font-size:17px;
+    line-height:1.62;
+  }
+  .wrap{max-width:60rem;margin:0 auto;padding-inline:1.35rem;padding-block:0 5rem}
+  h1,h2,h3{text-wrap:balance}
+
+  header.mast{padding-block:4.5rem 2.5rem;border-bottom:1px solid var(--rule)}
+  .mast h1{
+    font-family:'Cormorant Garamond',Georgia,serif;
+    font-weight:600;
+    font-size:clamp(3.4rem,13vw,7rem);
+    line-height:.88;
+    letter-spacing:-.015em;
+    margin:0 0 1.2rem;
+  }
+  .mast h1 em{font-style:italic;font-weight:400;display:block}
+  .standfirst{max-width:var(--measure);font-size:1.06rem;color:var(--ink-soft);margin:0 0 1.6rem}
+  .countries{
+    font-family:'Cormorant Garamond',Georgia,serif;
+    font-size:1.15rem;color:var(--oxblood);line-height:1.7;max-width:var(--measure);margin:0;
+  }
+
+  nav.contents{padding-block:2.4rem .6rem}
+  nav.contents h2,section.appendix h2{
+    font-family:'Cormorant Garamond',Georgia,serif;
+    font-size:1.5rem;font-weight:600;margin:0 0 1rem;
+  }
+  nav.contents ol{list-style:none;margin:0;padding:0;columns:2;column-gap:2.5rem}
+  nav.contents li{break-inside:avoid;padding:.34rem 0;border-bottom:1px dotted var(--rule)}
+  nav.contents a{
+    display:flex;gap:.6rem;align-items:baseline;justify-content:space-between;
+    color:var(--ink);text-decoration:none;
+  }
+  nav.contents a:hover .dish,nav.contents a:focus .dish{color:var(--oxblood)}
+  nav.contents .place{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.02rem;color:var(--ink-soft);white-space:nowrap}
+  nav.contents .dish{font-size:.95rem}
+
+  .tag{
+    font-size:.74rem;letter-spacing:.02em;
+    border:1px solid var(--rule);border-radius:2px;
+    padding:.05rem .4rem;color:var(--ink-soft);white-space:nowrap;
+    font-style:normal;
+  }
+  .tag.pan{border-color:var(--oxblood);color:var(--oxblood)}
+
+  .preamble{max-width:var(--measure);margin:2.6rem 0 0;color:var(--ink-soft);font-size:.98rem}
+  .preamble strong{color:var(--ink);font-weight:600}
+  section.appendix .preamble{margin:0 0 2rem}
+
+  article.recipe{padding-block:3.6rem 1rem;border-top:1px solid var(--rule);margin-top:3rem}
+  .place-line{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.25rem;color:var(--oxblood);margin:0 0 .15rem}
+  article.recipe h2{
+    font-family:'Cormorant Garamond',Georgia,serif;
+    font-weight:600;font-size:clamp(2.1rem,6.5vw,3.3rem);
+    line-height:1.02;margin:0 0 .35rem;letter-spacing:-.01em;
+  }
+  .pronounce{font-style:italic;color:var(--ink-soft);margin:0 0 .9rem;font-size:.97rem}
+  .stats{
+    display:flex;flex-wrap:wrap;gap:.35rem 1.4rem;align-items:center;
+    font-size:.9rem;color:var(--ink-soft);
+    padding-block:.55rem;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+    margin:0 0 1.5rem;
+  }
+  .stats b{font-weight:600;color:var(--ink)}
+  .intro{max-width:var(--measure);margin:0 0 2rem}
+
+  .cols{display:grid;grid-template-columns:19rem minmax(0,1fr);gap:2.6rem}
+  @media(max-width:760px){.cols{grid-template-columns:minmax(0,1fr);gap:2rem}}
+
+  .side h3,.method h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.28rem;font-weight:600;margin:0 0 .55rem}
+  .side section{margin:0 0 1.9rem}
+  .side ul{list-style:none;margin:0;padding:0;font-size:.95rem}
+  .side li{padding:.3rem 0;border-bottom:1px solid var(--rule);line-height:1.45}
+  .side li:last-child{border-bottom:none}
+  .qty{color:var(--brass);font-variant-numeric:tabular-nums}
+  .group{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.02rem;color:var(--ink-soft);margin:.9rem 0 .1rem}
+  .subs p{font-size:.93rem;margin:0 0 .6rem;color:var(--ink-soft)}
+  .subs b{color:var(--ink);font-weight:600}
+
+  .method ol{margin:0;padding:0;list-style:none;counter-reset:step}
+  .method li{counter-increment:step;position:relative;padding:0 0 1.05rem 2.6rem;max-width:var(--measure)}
+  .method li::before{
+    content:counter(step);position:absolute;left:0;top:-.1rem;
+    font-family:'Cormorant Garamond',Georgia,serif;font-size:1.5rem;color:var(--oxblood);
+  }
+  .note{
+    margin:1.4rem 0 0;padding:1rem 1.2rem;
+    background:var(--paper-deep);border-left:2px solid var(--brass);
+    font-size:.95rem;max-width:var(--measure);
+  }
+  .note b{font-weight:600}
+
+  section.appendix{padding-block:3.6rem 0;border-top:1px solid var(--rule);margin-top:3.4rem}
+  .pantry{columns:2;column-gap:2.5rem;font-size:.95rem;list-style:none;padding:0;margin:0 0 2.6rem}
+  .pantry li{break-inside:avoid;padding:.28rem 0;border-bottom:1px solid var(--rule)}
+  @media(max-width:560px){.pantry,nav.contents ol{columns:1}}
+  footer{margin-top:3rem;padding-top:1.4rem;border-top:1px solid var(--rule);font-size:.88rem;color:var(--ink-soft);max-width:var(--measure)}
+
+  a:focus-visible{outline:2px solid var(--oxblood);outline-offset:3px}
+  @media print{
+    :root{--paper:#fff;--paper-deep:#f2f2f2}
+    body{font-size:11pt}
+    article.recipe{break-before:page;padding-top:1rem}
+    nav.contents{break-after:page}
+  }
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <h1>Ten<br>Lunches<em>ten kitchens</em></h1>
+  <p class="standfirst">A companion to <i>Ten Weeknights</i>, built to a tighter clock. Five of these use a pan and take fifteen minutes at most. The other five need nothing more than a tin opener, a knife and sometimes a microwave, and are on the plate in under ten. Each is a real midday meal somewhere, and each is built around its protein.</p>
+  <p class="countries">Japan · Türkiye · Mexico · Lebanon · Vietnam · Spain · Egypt · Thailand · Poland · Brazil</p>
+</header>
+
+<nav class="contents" aria-label="Contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#japan"><span class="dish">Tamago sando <span class="tag">no pan</span></span><span class="place">Japan</span></a></li>
+    <li><a href="#turkiye"><span class="dish">Menemen <span class="tag pan">pan</span></span><span class="place">Türkiye</span></a></li>
+    <li><a href="#mexico"><span class="dish">Molletes <span class="tag pan">grill</span></span><span class="place">Mexico</span></a></li>
+    <li><a href="#lebanon"><span class="dish">Balila <span class="tag pan">pan</span></span><span class="place">Lebanon</span></a></li>
+    <li><a href="#vietnam"><span class="dish">Bánh mì trứng <span class="tag pan">pan</span></span><span class="place">Vietnam</span></a></li>
+    <li><a href="#spain"><span class="dish">Ensalada de garbanzos <span class="tag">no pan</span></span><span class="place">Spain</span></a></li>
+    <li><a href="#egypt"><span class="dish">Ful medames <span class="tag">no pan</span></span><span class="place">Egypt</span></a></li>
+    <li><a href="#thailand"><span class="dish">Larb gai <span class="tag pan">pan</span></span><span class="place">Thailand</span></a></li>
+    <li><a href="#poland"><span class="dish">Twarożek <span class="tag">no pan</span></span><span class="place">Poland</span></a></li>
+    <li><a href="#brazil"><span class="dish">Bauru <span class="tag">no pan</span></span><span class="place">Brazil</span></a></li>
+  </ol>
+
+  <p class="preamble"><strong>How to read this.</strong> Dishes marked <span class="tag">no pan</span> are assembled from tins, tubs and the fridge, with a microwave at most. Dishes marked <span class="tag pan">pan</span> or <span class="tag pan">grill</span> go from a cold kitchen to the table inside fifteen minutes. Shopping lists are split into fresh and pantry, and each substitution says how far the swap moves the dish. Five countries carry over from the dinner book, where their lunch traditions are strong enough to earn a second entry.</p>
+</nav>
+
+<!-- 1 JAPAN -->
+<article class="recipe" id="japan">
+  <p class="place-line">Japan</p>
+  <h2>Tamago sando</h2>
+  <p class="pronounce">The convenience-shop egg sandwich</p>
+  <div class="stats"><span><b>Serves</b> 2</span><span><b>Active</b> 5 minutes</span><span><b>Protein</b> eggs</span><span class="tag">no pan</span></div>
+  <p class="intro">The sandwich Japanese konbini chains have spent decades refining. Boil the eggs the night before, or in a batch on Sunday, and this is a five-minute lunch. The texture is what makes it: half the egg mashed to a smooth paste, half left in pieces you can see.</p>
+
+  <div class="cols">
+    <div class="side">
+      <section>
+        <h3>Shopping</h3>
+        <p class="group">Fresh</p>
+        <ul>
+          <li><span class="qty">4</span> eggs, already hard-boiled</li>
+          <li><span class="qty">4</span> slices soft white bread, thick cut</li>
+          <li>butter</li>
+        </ul>
+        <p class="group">Pantry</p>
+        <ul>
+          <li><span class="qty">3 tbsp</span> Kewpie mayonnaise</li>
+          <li><span class="qty">1 tsp</span> milk</li>
+          <li><span class="qty">½ tsp</span> sugar</li>
+          <li>salt · white pepper</li>
+        </ul>
+      </section>
+      <section class="subs">
+        <h3>If you don't have it</h3>
+        <p><b>Kewpie</b> — ordinary mayonnaise with a few drops of rice vinegar and an extra pinch of sugar. Kewpie is made with yolks only and tastes richer, so the copy is close but flatter.</p>
+        <p><b>Soft white bread</b> — the fluffy milk-bread style (shokupan) matters more than the brand. A chewy sourdough fights the filling.</p>
+        <p><b>More protein</b> — five or six eggs to four slices makes a fatter, sturdier sandwich.</p>
+      </section>
+    </div>
+
+    <div class="method">
+      <h3>Method</h3>
+      <ol>
+        <li>Peel the eggs. Mash two of them to a smooth paste with the mayonnaise, milk, sugar, salt and white pepper.</li>
+        <li>Chop the other two roughly and fold them through, so pieces of white and yolk are still visible.</li>
+        <li>Butter the bread right to the edges. It keeps the bread from going damp if you are packing it.</li>
+        <li>Pile the filling on thickly, close, press gently, trim the crusts as the konbini do, and cut in half.</li>
+      </ol>
+      <p class="note"><b>Boiling, if you must:</b> 9 minutes from boiling water, then straight into cold water. The yolk sets but stays bright.</p>
+    </div>
+  </div>
+</article>
+
+<!-- 2 TÜRKIYE -->
+<article class="recipe" id="turkiye">
+  <p class="place-line">Türkiye</p>
+  <h2>Menemen</h2>
+  <p class="pronounce">Eggs set softly into peppers and tomato</p>
+  <div class="stats"><span><b>Serves</b> 2</span><span><b>Active</b> 15 minutes</span><span><b>Protein</b> eggs</span><span class="tag pan">pan</span></div>
+  <p class="intro">A breakfast dish in Türkiye that works just as well at one in the afternoon. The eggs go into a thick pepper-and-tomato base and are stirred as little as possible, so they set in soft folds. It is eaten straight from the pan it was cooked in.</p>
+
+  <div class="cols">
+    <div class="side">
+      <section>
+        <h3>Shopping</h3>
+        <p class="group">Fresh</p>
+        <ul>
+          <li><span class="qty">4</span> eggs</li>
+          <li><span class="qty">2</span> long green peppers, or 1 green bell pepper</li>
+          <li><span class="qty">3</span> ripe tomatoes, or a 400 g tin</li>
+          <li>bread · parsley</li>
+        </ul>
+        <p class="group">Pantry</p>
+        <ul>
+          <li><span class="qty">1 tbsp</span> butter and a little olive oil</li>
+          <li><span class="qty">½ tsp</span> Aleppo pepper (pul biber)</li>
+          <li>salt · black pepper</li>
+        </ul>
+      </section>
+      <section class="subs">
+        <h3>If you don't have it</h3>
+        <p><b>Sucuk</b> — if you can find the Turkish garlic sausage, slice 60 g and render it in the pan first. It makes a heavier lunch with more protein. Chorizo is the nearest widely available sausage and tastes noticeably Spanish.</p>
+        <p><b>Fresh tomatoes</b> — tinned is fine and often better out of season. Fresh ones can be grated on a box grater, skins discarded.</p>
+        <p><b>Cheese</b> — a handful of crumbled white cheese or feta stirred in at the end is common.</p>
+      </section>
+    </div>
+
+    <div class="method">
+      <h3>Method</h3>
+      <ol>
+        <li>Chop the peppers small and cook them in the butter and oil over medium heat for 4–5 minutes, until soft.</li>
+        <li>Add the chopped tomatoes with salt and cook 5 minutes more, until the liquid has cooked off and the mixture is thick.</li>
+        <li>Turn the heat low. Crack the eggs straight into the pan and leave them for 30 seconds.</li>
+        <li>Drag a spoon through two or three times, then leave it until the whites are just set and the yolks still loose, about 2 minutes.</li>
+        <li>Off the heat, scatter Aleppo pepper and parsley. Eat from the pan with bread.</li>
+      </ol>
+      <p class="note"><b>The national argument</b> is over onions: whether menemen should have them at all. This version leaves them out, which also saves five minutes. If you add one, soften it before the peppers.</p>
+    </div>
+  </div>
+</article>
+
+<!-- 3 MEXICO -->
+<article class="recipe" id="mexico">
+  <p class="place-line">Mexico</p>
+  <h2>Molletes</h2>
+  <p class="pronounce">Beans and melted cheese on a split roll, with pico de gallo</p>
+  <div class="stats"><span><b>Serves</b> 2</span><span><b>Active</b> 10 minutes</span><span><b>Protein</b> beans and cheese</span><span class="tag pan">grill</span></div>
+  <p class="intro">An everyday Mexican standby and the best argument for keeping a tin of refried beans in the cupboard. The beans and cheese do the work; the raw pico de gallo on top keeps it from feeling heavy.</p>
+
+  <div class="cols">
+    <div class="side">
+      <section>
+        <h3>Shopping</h3>
+        <p class="group">Fresh</p>
+        <ul>
+          <li><span class="qty">2</span> bolillos or crusty rolls, split</li>
+          <li><span class="qty">150 g</span> Oaxaca cheese, or low-moisture mozzarella</li>
+          <li><span class="qty">1</span> tomato · <span class="qty">¼</span> white onion</li>
+          <li><span class="qty">1</span> jalapeño · lime · coriander</li>
+        </ul>
+        <p class="group">Pantry</p>
+        <ul>
+          <li><span class="qty">1</span> tin refried beans</li>
+          <li>butter · salt</li>
+        </ul>
+      </section>
+      <section class="subs">
+        <h3>If you don't have it</h3>
+        <p><b>Refried beans</b> — a tin of black or pinto beans, drained and mashed in a pan with a little of their liquid and a pinch of cumin. Two minutes, and closer than it sounds.</p>
+        <p><b>Oaxaca cheese</b> — a stretched-curd cheese, which is why mozzarella stands in well. Cheddar goes greasy here.</p>
+        <p><b>More protein</b> — a fried egg on top, or chorizo cooked into the beans.</p>
+      </section>
+    </div>
+
+    <div class="method">
+      <h3>Method</h3>
+      <ol>
+        <li>Heat the grill. Butter the cut sides of the rolls and toast them under it for a minute, until dry and lightly coloured.</li>
+        <li>Spread the beans thickly over each half. If they come out of the tin stiff, loosen them in a pan with a spoon of water first.</li>
+        <li>Cover with the cheese and grill 3–4 minutes, until it is fully melted and blistered at the edges.</li>
+        <li>While they cook, chop the tomato, onion, jalapeño and coriander small and dress with lime and salt.</li>
+        <li>Spoon the pico over the hot molletes and eat straight away.</li>
+      </ol>
+      <p class="note"><b>Bread matters more than usual.</b> A soft roll goes to mush under the beans. You want a crust that holds.</p>
+    </div>
+  </div>
+</article>
+
+<!-- 4 LEBANON -->
+<article class="recipe" id="lebanon">
+  <p class="place-line">Lebanon</p>
+  <h2>Balila</h2>
+  <p class="pronounce">Warm chickpeas with garlic, cumin and lemon</p>
+  <div class="stats"><span><b>Serves</b> 2</span><span><b>Active</b> 8 minutes</span><span><b>Protein</b> chickpeas</span><span class="tag pan">pan</span></div>
+  <p class="intro">A Lebanese breakfast and mezze staple, made in one small pan. Past the chickpeas there are four ingredients, and the dish lives or dies on using enough lemon and enough salt.</p>
+
+  <div class="cols">
+    <div class="side">
+      <section>
+        <h3>Shopping</h3>
+        <p class="group">Fresh</p>
+        <ul>
+          <li><span class="qty">2</span> garlic cloves</li>
+          <li><span class="qty">1</span> lemon</li>
+          <li>parsley · flatbread</li>
+        </ul>
+        <p class="group">Pantry</p>
+        <ul>
+          <li><span class="qty">1 × 400 g</span> tin chickpeas, liquid kept</li>
+          <li><span class="qty">1 tsp</span> ground cumin</li>
+          <li>olive oil · salt</li>
+          <li><span class="qty">1 tbsp</span> tahini, optional</li>
+        </ul>
+      </section>
+      <section class="subs">
+        <h3>If you don't have it</h3>
+        <p><b>Tahini</b> — optional, though a spoonful stirred in makes it richer and adds protein.</p>
+        <p><b>Raw garlic</b> — traditional and sharp. If that is too much at midday, warm it in the olive oil for 30 seconds first.</p>
+        <p><b>A fuller plate</b> — a spoon of thick yoghurt or labneh on top, or a handful of toasted pine nuts, both common.</p>
+      </section>
+    </div>
+
+    <div class="method">
+      <h3>Method</h3>
+      <ol>
+        <li>Tip the chickpeas into a small pan with a few spoonfuls of their liquid and warm through over medium heat, 3–4 minutes.</li>
+        <li>Crush the garlic with a good pinch of salt into a paste and stir it in with the cumin.</li>
+        <li>Crush about a quarter of the chickpeas against the side of the pan so the liquid thickens and clings.</li>
+        <li>Off the heat, add the juice of half the lemon, a generous pour of olive oil, and salt. Taste again; it will almost certainly want more lemon.</li>
+        <li>Parsley on top, bread alongside.</li>
+      </ol>
+      <p class="note"><b>Keep the tin liquid.</b> The starchy water thickens into the sauce that holds everything together.</p>
+    </div>
+  </div>
+</article>
+
+<!-- 5 VIETNAM -->
+<article class="recipe" id="vietnam">
+  <p class="place-line">Vietnam</p>
+  <h2>Bánh mì trứng</h2>
+  <p class="pronounce">Fried egg bánh mì</p>
+  <div class="stats"><span><b>Serves</b> 1</span><span><b>Active</b> 10 minutes</span><span><b>Protein</b> eggs</span><span class="tag pan">pan</span></div>
+  <p class="intro">The cheapest bánh mì on the cart and the easiest to make at home, because it needs no cold cuts or pâté. Crisp-edged fried eggs, a slick of mayonnaise, a shake of Maggi, and as much herb and cucumber as the roll will take.</p>
+
+  <div class="cols">
+    <div class="side">
+      <section>
+        <h3>Shopping</h3>
+        <p class="group">Fresh</p>
+        <ul>
+          <li><span class="qty">3</span> eggs</li>
+          <li><span class="qty">1</span> light, crisp baguette</li>
+          <li><span class="qty">½</span> cucumber · coriander</li>
+          <li><span class="qty">1</span> carrot · <span class="qty">1</span> red chilli</li>
+        </ul>
+        <p class="group">Pantry</p>
+        <ul>
+          <li>mayonnaise</li>
+          <li>Maggi seasoning, or light soy</li>
+          <li><span class="qty">2 tbsp</span> rice vinegar · <span class="qty">1 tbsp</span> sugar</li>
+          <li>oil · salt · black pepper</li>
+        </ul>
+      </section>
+      <section class="subs">
+        <h3>If you don't have it</h3>
+        <p><b>The pickle</b> — carrot sitting ten minutes in vinegar, sugar and salt is enough for today. A proper jar of đồ chua keeps a fortnight in the fridge and is worth making on a Sunday.</p>
+        <p><b>Maggi</b> — light soy with a pinch of sugar. Maggi is darker and more savoury, and a bottle lasts for years.</p>
+        <p><b>Pâté</b> — a smear of coarse liver pâté is the usual base layer on other bánh mì and makes this one more substantial.</p>
+      </section>
+    </div>
+
+    <div class="method">
+      <h3>Method</h3>
+      <ol>
+        <li>Shred the carrot and leave it in the vinegar with the sugar and a pinch of salt while you do everything else.</li>
+        <li>Fry the eggs in hot oil, hard enough that the whites blister and brown at the edge, yolks still soft. Season well.</li>
+        <li>Split the baguette, pull out a little of the crumb, and warm it in the oven for a minute if it isn't fresh.</li>
+        <li>Mayonnaise on both sides, then the eggs, then a shake of Maggi.</li>
+        <li>Load with drained pickle, cucumber batons, coriander and chilli, and press the roll closed.</li>
+      </ol>
+      <p class="note"><b>Egg count:</b> three eggs in one roll sounds excessive and is right. With two, the bread wins.</p>
+    </div>
+  </div>
+</article>
+
+<!-- 6 SPAIN -->
+<article class="recipe" id="spain">
+  <p class="place-line">Spain</p>
+  <h2>Ensalada de garbanzos</h2>
+  <p class="pronounce">Chickpea salad with tuna, a summer staple of Spanish home cooking</p>
+  <div class="stats"><span><b>Serves</b> 2</span><span><b>Active</b> 5 minutes</span><span><b>Protein</b> tuna and chickpeas</span><span class="tag">no pan</span></div>
+  <p class="intro">Two tins and a knife. What separates a good version from a dull one is the tinned fish, so this is the recipe to spend on: Spanish tuna or bonito packed in olive oil, not the stuff in brine.</p>
+
+  <div class="cols">
+    <div class="side">
+      <section>
+        <h3>Shopping</h3>
+        <p class="group">Fresh</p>
+        <ul>
+          <li><span class="qty">½</span> red onion</li>
+          <li><span class="qty">1</span> tomato, or a handful of cherry tomatoes</li>
+          <li><span class="qty">½</span> green pepper · parsley</li>
+          <li><span class="qty">1</span> hard-boiled egg, optional</li>
+        </ul>
+        <p class="group">Pantry</p>
+        <ul>
+          <li><span class="qty">1 × 400 g</span> tin chickpeas</li>
+          <li><span class="qty">2</span> tins tuna or bonito in olive oil</li>
+          <li><span class="qty">1 tbsp</span> sherry vinegar</li>
+          <li>olive oil · salt · black pepper</li>
+        </ul>
+      </section>
+      <section class="subs">
+        <h3>If you don't have it</h3>
+        <p><b>Sherry vinegar</b> — red wine vinegar is the closest. Sherry vinegar is rounder and slightly nutty.</p>
+        <p><b>Tuna in brine</b> — usable. Drain it hard and add an extra tablespoon of olive oil to make up for what the brine took out.</p>
+        <p><b>Red onion</b> — slice it thin and rinse under cold water for ten seconds to soften its bite.</p>
+      </section>
+    </div>
+
+    <div class="method">
+      <h3>Method</h3>
+      <ol>
+        <li>Drain and rinse the chickpeas and tip them into a bowl.</li>
+        <li>Add the tuna with about half its oil, broken into large flakes.</li>
+        <li>Slice the onion as thinly as you can, dice the tomato and pepper, and fold everything through with the parsley.</li>
+        <li>Dress with the vinegar, more olive oil, salt and plenty of black pepper. Leave it five minutes if you can. Quartered egg on top.</li>
+      </ol>
+      <p class="note"><b>Better the next day,</b> cold from the fridge. It is one of the few dishes in either book that improves in a lunchbox, so make double.</p>
+    </div>
+  </div>
+</article>
+
+<!-- 7 EGYPT -->
+<article class="recipe" id="egypt">
+  <p class="place-line">Egypt</p>
+  <h2>Ful medames</h2>
+  <p class="pronounce">Fava beans crushed with cumin, lemon and oil</p>
+  <div class="stats"><span><b>Serves</b> 2</span><span><b>Active</b> 8 minutes</span><span><b>Protein</b> fava beans and eggs</span><span class="tag">no pan</span></div>
+  <p class="intro">Egypt's national dish, eaten at every hour and sold from big copper pots on the street. From a tin it needs only warming and crushing, and the toppings turn a bowl of beans into lunch.</p>
+
+  <div class="cols">
+    <div class="side">
+      <section>
+        <h3>Shopping</h3>
+        <p class="group">Fresh</p>
+        <ul>
+          <li><span class="qty">2</span> garlic cloves · <span class="qty">1</span> lemon</li>
+          <li><span class="qty">1</span> tomato · parsley</li>
+          <li><span class="qty">2</span> hard-boiled eggs</li>
+          <li>flatbread</li>
+        </ul>
+        <p class="group">Pantry</p>
+        <ul>
+          <li><span class="qty">1 × 400 g</span> tin ful medames (fava beans)</li>
+          <li><span class="qty">1 tsp</span> ground cumin</li>
+          <li><span class="qty">1 tbsp</span> tahini</li>
+          <li>olive oil · salt · chilli flakes</li>
+        </ul>
+      </section>
+      <section class="subs">
+        <h3>If you don't have it</h3>
+        <p><b>Tinned ful</b> — chickpeas make a decent bowl by the same method, but that is a different dish. Tinned ful is cheap in any Middle Eastern grocer and keeps for years.</p>
+        <p><b>Tahini</b> — leave it out and use more olive oil. The bowl gets lighter and slightly less filling.</p>
+        <p><b>The eggs</b> — keep them. They are what carries this through to dinner.</p>
+      </section>
+    </div>
+
+    <div class="method">
+      <h3>Method</h3>
+      <ol>
+        <li>Warm the beans with their liquid in a bowl in the microwave, 2 minutes, stirring halfway.</li>
+        <li>Crush the garlic with salt and stir it in with the cumin and the juice of half the lemon.</li>
+        <li>Crush about half the beans with a fork, leaving the rest whole, until it is thick and spoonable.</li>
+        <li>Spread into a shallow bowl. Pour over olive oil and the tahini loosened with a little water.</li>
+        <li>Top with chopped tomato, parsley, chilli flakes and the halved eggs. Scoop up with bread.</li>
+      </ol>
+      <p class="note"><b>Taste for lemon twice,</b> once when you mix and once at the table. The beans absorb acidity as they sit, and the bowl goes flat without a second squeeze.</p>
+    </div>
+  </div>
+</article>
+
+<!-- 8 THAILAND -->
+<article class="recipe" id="thailand">
+  <p class="place-line">Thailand</p>
+  <h2>Larb gai</h2>
+  <p class="pronounce">Minced chicken with lime, fish sauce and toasted rice</p>
+  <div class="stats"><span><b>Serves</b> 2</span><span><b>Active</b> 15 minutes</span><span><b>Protein</b> minced chicken</span><span class="tag pan">pan</span></div>
+  <p class="intro">From Laos and Thailand's north-eastern Isan region, and the most protein-dense plate in this book. The mince is poached in a splash of water rather than fried, which keeps it loose and lets the dressing soak in.</p>
+
+  <div class="cols">
+    <div class="side">
+      <section>
+        <h3>Shopping</h3>
+        <p class="group">Fresh</p>
+        <ul>
+          <li><span class="qty">400 g</span> minced chicken</li>
+          <li><span class="qty">2</span> limes</li>
+          <li><span class="qty">2</span> shallots · <span class="qty">2</span> spring onions</li>
+          <li>mint · coriander · little gem lettuce</li>
+        </ul>
+        <p class="group">Pantry</p>
+        <ul>
+          <li><span class="qty">2–3 tbsp</span> fish sauce</li>
+          <li><span class="qty">1 tbsp</span> raw sticky or jasmine rice</li>
+          <li><span class="qty">1 tsp</span> chilli flakes</li>
+          <li><span class="qty">½ tsp</span> sugar · rice to serve</li>
+        </ul>
+      </section>
+      <section class="subs">
+        <h3>If you don't have it</h3>
+        <p><b>Toasted rice powder (khao khua)</b> — the one thing you cannot skip; its nutty grit is what makes larb larb. Asian grocers sell it ready-made, and a jar lasts months.</p>
+        <p><b>Chicken</b> — pork is just as traditional. Crumbled firm tofu takes the dressing well.</p>
+        <p><b>Mint</b> — use a full handful. With coriander alone it tastes incomplete.</p>
+      </section>
+    </div>
+
+    <div class="method">
+      <h3>Method</h3>
+      <ol>
+        <li>Toast the raw rice in a dry pan over medium heat, shaking often, until it is the colour of strong tea, 3–4 minutes. Grind to a coarse powder in a mortar or spice grinder.</li>
+        <li>Put the mince in the same pan with 4 tbsp water and cook over medium heat, breaking it up, 5–6 minutes, until just cooked and still moist.</li>
+        <li>Take the pan off the heat. Add the fish sauce, the juice of both limes, the sugar and the chilli flakes.</li>
+        <li>Stir in the sliced shallots and spring onions, the rice powder, and a lot of torn mint and coriander.</li>
+        <li>Taste. It should be sour first, salty second, hot third. Eat with lettuce leaves and rice.</li>
+      </ol>
+      <p class="note"><b>Dress it off the heat.</b> Boiled lime juice loses its sourness and the whole dish goes dull.</p>
+    </div>
+  </div>
+</article>
+
+<!-- 9 POLAND -->
+<article class="recipe" id="poland">
+  <p class="place-line">Poland</p>
+  <h2>Twarożek</h2>
+  <p class="pronounce">Curd cheese with radish and chives, on rye</p>
+  <div class="stats"><span><b>Serves</b> 2</span><span><b>Active</b> 5 minutes</span><span><b>Protein</b> curd cheese</span><span class="tag">no pan</span></div>
+  <p class="intro">What Poland eats when there are five minutes and no intention of cooking; around Poznań the same thing goes by gzik. Twaróg is drier and far higher in protein than cream cheese, which is why this sits like a meal.</p>
+
+  <div class="cols">
+    <div class="side">
+      <section>
+        <h3>Shopping</h3>
+        <p class="group">Fresh</p>
+        <ul>
+          <li><span class="qty">250 g</span> twaróg (farmer's cheese)</li>
+          <li><span class="qty">3 tbsp</span> soured cream</li>
+          <li><span class="qty">5–6</span> radishes</li>
+          <li>chives · spring onion · cucumber</li>
+          <li>dark rye bread</li>
+        </ul>
+        <p class="group">Pantry</p>
+        <ul>
+          <li>salt · black pepper</li>
+          <li>butter for the bread</li>
+        </ul>
+      </section>
+      <section class="subs">
+        <h3>If you don't have it</h3>
+        <p><b>Twaróg</b> — well-drained cottage cheese, or quark. Both are milder and wetter; twaróg has a clean sourness that the copies only partly catch.</p>
+        <p><b>Soured cream</b> — plain yoghurt, which makes it tangier and lighter.</p>
+        <p><b>Rye</b> — a dense dark loaf holds the weight. Soft white bread collapses under it.</p>
+      </section>
+    </div>
+
+    <div class="method">
+      <h3>Method</h3>
+      <ol>
+        <li>Break up the twaróg in a bowl with a fork and stir in the soured cream until spreadable but still coarse.</li>
+        <li>Slice the radishes thinly, chop the chives and spring onion, and fold most of it through with plenty of salt and pepper.</li>
+        <li>Butter the rye, pile the cheese on, and scatter the rest of the radish and chives on top.</li>
+      </ol>
+      <p class="note"><b>Season harder than feels right.</b> Unsalted curd cheese is bland, and radish and chives can't carry the plate by themselves.</p>
+    </div>
+  </div>
+</article>
+
+<!-- 10 BRAZIL -->
+<article class="recipe" id="brazil">
+  <p class="place-line">Brazil</p>
+  <h2>Bauru</h2>
+  <p class="pronounce">Roast beef, tomato, pickle and melted cheese in a hollowed roll</p>
+  <div class="stats"><span><b>Serves</b> 1</span><span><b>Active</b> 8 minutes</span><span><b>Protein</b> roast beef and cheese</span><span class="tag">no pan</span></div>
+  <p class="intro">Created in 1934 at the Ponto Chic bar in São Paulo and named after the law student who ordered it, nicknamed for his home town of Bauru. It is still on lanchonete boards across the country. Two details make it a bauru: the soft crumb is pulled out of the roll, and the cheese is melted separately and spooned in.</p>
+
+  <div class="cols">
+    <div class="side">
+      <section>
+        <h3>Shopping</h3>
+        <p class="group">Fresh</p>
+        <ul>
+          <li><span class="qty">1</span> pão francês or small crusty roll</li>
+          <li><span class="qty">120 g</span> sliced roast beef</li>
+          <li><span class="qty">100 g</span> mozzarella or another mild melting cheese</li>
+          <li><span class="qty">1</span> tomato</li>
+          <li><span class="qty">1</span> pickled cucumber</li>
+        </ul>
+        <p class="group">Pantry</p>
+        <ul>
+          <li>dried oregano</li>
+          <li>salt · black pepper</li>
+        </ul>
+      </section>
+      <section class="subs">
+        <h3>If you don't have it</h3>
+        <p><b>Roast beef</b> — ham is the everyday variation across Brazil. The city of Bauru has written the original recipe into municipal law, so by its reckoning a ham version is something else.</p>
+        <p><b>The melting</b> — the original melts the cheese in a bain-marie. Thirty to forty seconds in the microwave gets you to the same molten state.</p>
+        <p><b>Bigger lunch</b> — double the beef before you double the cheese.</p>
+      </section>
+    </div>
+
+    <div class="method">
+      <h3>Method</h3>
+      <ol>
+        <li>Split the roll and pull out most of the soft crumb from both halves, leaving a shell.</li>
+        <li>Put the cheese in a small bowl with a teaspoon of water and microwave in short bursts until fully soft and stretchy.</li>
+        <li>Layer the roast beef into the roll, then sliced tomato and pickle, with salt, pepper and a pinch of oregano.</li>
+        <li>Spoon the melted cheese over the filling, press the roll closed and eat while the cheese is still soft.</li>
+      </ol>
+      <p class="note"><b>Why hollow the roll:</b> it makes room for the filling, and the crust walls stop the melted cheese running out of the sides.</p>
+    </div>
+  </div>
+</article>
+
+<section class="appendix">
+  <h2>The shelf</h2>
+  <p class="preamble">Nearly all of the no-pan half of this book comes out of tins and tubs. Keep these in and lunch stops being a decision.</p>
+  <ul class="pantry">
+    <li>Tinned chickpeas</li>
+    <li>Tinned ful medames (fava beans)</li>
+    <li>Tinned refried beans</li>
+    <li>Good tuna or bonito in olive oil</li>
+    <li>Kewpie mayonnaise</li>
+    <li>Maggi seasoning</li>
+    <li>Fish sauce</li>
+    <li>Tahini</li>
+    <li>Sherry vinegar and rice vinegar</li>
+    <li>Ground cumin, dried oregano, chilli flakes, Aleppo pepper</li>
+    <li>Raw sticky or jasmine rice, for toasting</li>
+    <li>A dozen eggs, half of them boiled on Sunday</li>
+  </ul>
+
+  <h2>Where the clock won</h2>
+  <p class="preamble">The tamago sando counts as five minutes only because the eggs were boiled earlier. The ful and the balila start from tins; street ful in Cairo is simmered for hours from dried beans, though tinned ful is an ordinary pantry item there too. The bánh mì pickle gets ten minutes here where a proper jar gets a day. And the bauru's cheese is melted in a microwave where the original uses a bain-marie. Everything else is cooked the way it is at home.</p>
+
+  <footer>Ten Lunches · a companion to Ten Weeknights · quantities as marked · active times assume boiled eggs are already in the fridge where listed</footer>
+</section>
+
+</div>
+
+</body></html>
